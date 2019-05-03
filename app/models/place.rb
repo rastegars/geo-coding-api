@@ -1,3 +1,3 @@
 class Place < ApplicationRecord
-  validates :name, :latitude, :longitude, presence: true
+  validates :location, :lat, :lon, presence: true
 end

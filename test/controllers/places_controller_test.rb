@@ -12,7 +12,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create place" do
     assert_difference('Place.count') do
-      post places_url, params: { place: { latitude: @place.latitude, longitude: @place.longitude, name: @place.name } }, as: :json
+      post places_url, params: { place: { lat: @place.lat, lon: @place.lon, location: @place.location } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update place" do
-    patch place_url(@place), params: { place: { latitude: @place.latitude, longitude: @place.longitude, name: @place.name } }, as: :json
+    patch place_url(@place), params: { place: { lat: @place.lat, lon: @place.lon, location: @place.location } }, as: :json
     assert_response 200
   end
 

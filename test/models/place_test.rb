@@ -9,20 +9,20 @@ class PlaceTest < ActiveSupport::TestCase
     assert @place.valid?
   end
 
-  test 'invalid without name' do
-    @place.name = nil
+  test 'invalid without address' do
+    @place.location = nil
     refute @place.valid?
-    assert_not_nil @place.errors[:name]
+    assert_not_nil @place.errors[:location]
   end
 
   test 'invalid without latitude' do
-    @place.latitude = nil
+    @place.lat = nil
     refute @place.valid?
     assert_not_nil @place.errors[:latitude]
   end
 
   test 'invalid without longitude' do
-    @place.longitude = nil
+    @place.lon = nil
     refute @place.valid?
     assert_not_nil @place.errors[:longitude]
   end
