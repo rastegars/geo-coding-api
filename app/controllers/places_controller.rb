@@ -38,6 +38,15 @@ class PlacesController < ApplicationController
     @place.destroy
   end
 
+  def search
+    Geocoder.configure(always_raise: [SocketError, Timeout::Error])
+    results = Geocoder.search(params[:prefix])
+    puts results
+    render json: results, status: :ok
+  rescue SocketError
+    render json: { message: 'Connection Timeout' }, status: :request_timeout
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
